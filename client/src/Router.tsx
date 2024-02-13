@@ -3,6 +3,7 @@ import { Home } from './pages/home'
 import { Users } from './pages/users'
 import { DefaultLayout } from './layouts/DefaultLayout'
 import { User } from './pages/user'
+import { UserEdit } from './pages/userEdit'
 
 const routes = [
   {
@@ -16,6 +17,10 @@ const routes = [
   {
     path: '/users/:userId',
     element: <User />,
+  },
+  {
+    path: '/users/edit/:userId',
+    element: <UserEdit />,
   },
 ]
 

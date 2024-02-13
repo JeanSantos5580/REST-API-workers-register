@@ -1,5 +1,6 @@
 const express = require('express')
-const { User } = require('../models')
+const { User } = require('../models');
+const { where } = require('sequelize');
 
 const router = express.Router()
 
@@ -28,13 +29,27 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-router.get('/:id', async (req, res) => {
+
+
+router.get('/:id', async (req, res, next) => {
     const id = req.params.id
 
     try {
         const searchedUser = await User.findByPk(id) //find by primary key
         res.status(201).json(searchedUser)
     } catch (error) {
+        next(error)
+    }
+})
+
+router.put('/update/:id', async (req, res, next)=>{
+    const id = req.params.id
+    const user = req.body
+
+    try{
+        const newUserData = await User.update(user, {where: {id: id}})
+        res.status(201).json(newUserData)
+    } catch (error){
         next(error)
     }
 })

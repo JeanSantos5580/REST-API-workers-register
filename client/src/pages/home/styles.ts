@@ -37,6 +37,19 @@ export const Checkbox = styled.div`
   display: flex;
   gap: 8px;
 `
+
+export const ActionButton = styled.button`
+  height: 30px;
+  background: ${({ theme }) => theme.colors.purple_500};
+  border: none;
+  padding: 6px 0;
+  border-radius: 4px;
+  cursor: pointer;
+
+  color: #fff;
+  font-weight: bold;
+`
+
 export const ErrorMessage = styled.small`
   color: ${({ theme }) => theme.colors.red_500};
 `

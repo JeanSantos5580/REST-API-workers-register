@@ -1,10 +1,19 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Checkbox, Container, ErrorMessage, Input } from './styles'
+import {
+  ActionButton,
+  Checkbox,
+  Container,
+  ErrorMessage,
+  Input,
+} from './styles'
 import { api } from '../../lib/axios'
 import { NewUserSchema, newUserSchema } from '../../schemas/User'
+import { useNavigate } from 'react-router-dom'
 
 export function Home() {
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -27,6 +36,7 @@ export function Home() {
   ) => {
     await createUser(userData)
     reset()
+    navigate('/users')
   }
 
   return (
@@ -55,7 +65,7 @@ export function Home() {
           <label htmlFor="newsletter">Receber newsletter?</label>
         </Checkbox>
 
-        <button type="submit">Cadastrar</button>
+        <ActionButton type="submit">Cadastrar</ActionButton>
       </form>
     </Container>
   )

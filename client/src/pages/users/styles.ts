@@ -34,8 +34,8 @@ export const CardsContainer = styled.div`
   align-items: center;
 `
 export const UserCard = styled.div`
-  min-width: 300px;
-  max-width: 300px;
+  min-width: 400px;
+  max-width: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -69,6 +69,7 @@ export const ActionButtons = styled.div`
 export const ActionButton = styled.button`
   width: 100px;
   height: 30px;
+  font-size: 12px;
   background: ${({ theme }) => theme.colors.purple_500};
   border: none;
   padding: 6px 0;
@@ -77,6 +78,10 @@ export const ActionButton = styled.button`
 
   color: #fff;
   font-weight: bold;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.purple_700};
+  }
 `
 export const ButtonDelete = styled(ActionButton)`
   background: ${({ theme }) => theme.colors.gray_700};

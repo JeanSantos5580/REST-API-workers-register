@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { NewUserSchema } from '../../schemas/User'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {
   ActionButton,
   ActionButtons,
   ButtonDelete,
-  ButtonGetUser,
   CardsContainer,
   UserCard,
   UsersContainer,
@@ -52,6 +51,9 @@ export function Users() {
             <ActionButtons>
               <ActionButton onClick={() => navigate(`/users/${user.id}`)}>
                 Detalhes
+              </ActionButton>
+              <ActionButton onClick={() => navigate(`/users/edit/${user.id}`)}>
+                Editar
               </ActionButton>
               <ButtonDelete
                 type="button"
